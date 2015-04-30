@@ -32,6 +32,25 @@
             <h1>Express middleware that creates an instant REST API for any JSON file</h1>
         </div>
         <footer><a href="https://kriek.co.uk/"><img src="img/kriek_logo.svg"></a></footer>
+        <div class="cover"></div>
+        <div class='dialog'>
+            <header>Playground<span class='close'>&times;</span></header>
+            <p>URL</p>
+            <input type="text" class='url'>
+            <p>Method</p>
+            <div class="methodButtons">
+                <button data-method="GET">GET</button>
+                <button data-method="POST">POST</button>
+                <button data-method="PUT">PUT</button>
+                <button data-method="PATCH">PATCH</button>
+                <button data-method="DELETE">DELETE</button>
+            </div>
+            <p>Body</p>
+            <textarea class='data'></textarea>
+            <button class="submit">Submit</button>
+            <p>Response</p>
+            <div class='response'></div>
+        </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>

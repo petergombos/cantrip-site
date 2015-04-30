@@ -16,6 +16,9 @@ html {
     line-height: 1.4;
 }
 
+
+
+
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
@@ -162,6 +165,108 @@ footer img{
     margin: 16px 17px;
     float: right;
     box-shadow: 0px 4px 0px rgba(0,0,0,0.2);
+    outline: none;
+}
+
+.dialog {
+    font-family: 'Source Sans Pro', sans-serif;
+    position: absolute;
+    top: 100px;
+    width: 620px;
+    left: 50%;
+    margin-left: -310px;
+    background: #245365;
+    display: none;
+
+}
+
+.dialog header {
+    padding: 30px 45px;
+    background: #2e6b7e;
+    color: white;
+    font-size: 24px;
+    text-align: left;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+.dialog header:before {
+    display: none;
+}
+
+.dialog header .close {
+    position: absolute;
+    top: 30px;
+    right: 45px;
+    cursor: pointer;
+}
+
+.dialog p {
+    margin-left: 45px;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.dialog input, .dialog textarea, .dialog .response {
+    margin:  0 45px;
+    height: 50px;
+    margin-bottom: 40px;
+    box-sizing: border-box;
+    display: block;
+    border: none;
+    padding: 20px 16px;
+    outline: none;
+    width: 490px;
+    color: black;
+    background: white;
+}
+
+.dialog textarea, .dialog .response {
+    height: 120px;
+}
+
+.dialog .submit {
+    margin: 0 auto;
+    margin-bottom: 20px;
+    background: #4d4d4d;
+    border: none;
+    padding: 11px 19px;
+    box-shadow: 0px 4px 0px rgba(0,0,0,0.2);
+    outline: none;
+    display: block;
+}
+
+.dialog .methodButtons {
+    text-align: center;
+}
+
+.dialog .methodButtons button {
+    margin: 0 auto;
+    margin-bottom: 20px;
+    background: #4d4d4d;
+    border: none;
+    padding: 11px 19px;
+    box-shadow: 0px 4px 0px rgba(0,0,0,0.2);
+    outline: none;
+    display: inline-block;
+}
+
+.dialog .methodButtons button.active {
+    box-shadow: none;
+    background-color: #8d8d8d;
+}
+
+
+.cover {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.1);
+    display: none;
 }
 
 /* ==========================================================================
