@@ -5,6 +5,7 @@ $(document).ready(function() {
 		dataType: "JSON",
 		url: "https://api.github.com/repos/kriekapps/cantrip/contents/README.md"
 	}).done(function(response) {
+		
 		$('.main').append(converter.makeHtml(window.atob(response.content)));
 		$('pre').addClass('prettyprint');
 		$('#cantrip').remove();
