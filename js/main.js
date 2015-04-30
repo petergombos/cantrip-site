@@ -18,6 +18,14 @@ $(document).ready(function() {
 		// set correct license url
 		$('a[href="LICENSE"]').attr("href","https://raw.githubusercontent.com/kriekapps/cantrip/master/LICENSE").attr("target","_blank");
 
+		//Add try buttons
+		$(".prettyprint").each(function() {
+			var innerText = $(this).text();
+			if (innerText.indexOf("$ curl") > -1) {
+				$(this).after("<div class='codeFooter'><button class='tryit'>Try it out</button></div>")
+			}
+		});
+
 	}).fail(function(xhr, err) {
 		console.log(xhr, err);
 	});
