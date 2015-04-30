@@ -6,11 +6,16 @@ $(document).ready(function() {
 		url: "https://api.github.com/repos/kriekapps/cantrip/contents/README.md"
 	}).done(function(response) {
 		
+		// Render data
 		$('.main').append(converter.makeHtml(window.atob(response.content).replace(/randomID/g,getMyId())));
+		
+		// Formatting
 		$('pre').addClass('prettyprint');
 		$('#cantrip').remove();
-
 		prettyPrint();
+
+		// set correct license url
+		$('a[href="LICENSE"]').attr("href","https://raw.githubusercontent.com/kriekapps/cantrip/master/LICENSE").attr("target","_blank");
 
 	}).fail(function(xhr, err) {
 		console.log(xhr, err);
