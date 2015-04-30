@@ -7,7 +7,8 @@ $(document).ready(function() {
 	}).done(function(response) {
 		
 		// Render data
-		$('.main').append(converter.makeHtml(window.atob(response.content).replace(/randomID/g,getMyId())));
+		var id = getMyId();
+		$('.main').append(converter.makeHtml(window.atob(response.content).replace(/randomID/g,id)));
 		
 		// Formatting
 		$('pre').addClass('prettyprint');
