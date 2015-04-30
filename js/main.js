@@ -47,7 +47,7 @@ $(document).ready(function() {
 			dataType: "JSON",
 			url: $(".dialog .url").val(),
 			data: $(".dialog .data").val(),
-			type: "application/json"
+			contentType: "application/json"
 		}).done(function(response) {
 			$(".dialog .response").text(JSON.stringify(response, null, "\t"));
 		}).fail(function(response) {
