@@ -42,7 +42,7 @@ $(document).ready(function() {
 		console.log(xhr, err);
 	});
 
-	$(".dialog .baseUrl").text("http://cantrip.kriek.io/" + getMyId() + "/");
+	$(".dialog .baseUrl").text("https://cantrip.kriek.io/" + getMyId() + "/");
 
 
 	$(".dialog .close, .cover").click(function() {
@@ -68,7 +68,7 @@ $(document).ready(function() {
 		$.ajax({
 			method: $(".dialog button.active").data("method"),
 			dataType: "JSON",
-			url: "http://cantrip.kriek.io/" + getMyId() + "/" + $(".dialog .url").val(),
+			url: "https://cantrip.kriek.io/" + getMyId() + "/" + $(".dialog .url").val(),
 			data: $(".dialog .data").val(),
 			contentType: "application/json"
 		}).done(function(response) {
@@ -101,7 +101,7 @@ function getMyId(){
 function parseCURL(text) {
 	var data = {
 		method: "GET",
-		url: "http://cantrip.kriek.io/" + getMyId(),
+		url: "https://cantrip.kriek.io/" + getMyId(),
 		data: ""
 	}
 	var fragments = text.split("\\\n");
@@ -121,7 +121,7 @@ function parseCURL(text) {
 }
 
 function displayDialog(data) {
-	$(".dialog .url").val(data.url.replace("http://cantrip.kriek.io/" + getMyId() + "/", ""));
+	$(".dialog .url").val(data.url.replace("https://cantrip.kriek.io/" + getMyId() + "/", ""));
 	$(".dialog .data").val(data.data);
 	$(".dialog .methodButtons button").removeClass("active");
 	$(".dialog .methodButtons button[data-method=" + data.method + "]").addClass("active");
