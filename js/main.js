@@ -33,7 +33,7 @@ $(document).ready(function() {
 				});
 				if (firstCurl) {
 					firstCurl = false;
-					$(footer).after("<div class='footNote'>Note: a personal cantrip instance has been generated for you with the ID " + getMyId() + ". Play with it as you like!</div>");
+					$(footer).after("<div class='footNote'>Note: a personal cantrip instance has been generated for you with the ID " + getMyId() + ". Feel free to play with it!</div>");
 				}
 			}
 		});
