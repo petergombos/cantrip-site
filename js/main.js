@@ -18,8 +18,10 @@ $(document).ready(function() {
 		// set correct license url
 		$('a[href="LICENSE"]').attr("href","https://raw.githubusercontent.com/kriekapps/cantrip/master/LICENSE").attr("target","_blank");
 
+		var firstCurl = true;
+
 		//Add try buttons
-		$(".prettyprint").each(function() {
+		$(".prettyprint").each(function(index) {
 			var innerText = $(this).text();
 			if (innerText.indexOf("$ curl") > -1) {
 				var footer = $("<div class='codeFooter'></div>");
@@ -29,12 +31,18 @@ $(document).ready(function() {
 				button.click(function() {
 					displayDialog(parseCURL(innerText));
 				});
+				if (firstCurl) {
+					firstCurl = false;
+					$(footer).after("<div class='footNote'>Note: a personal cantrip instance has been generated for you with the ID " + getMyId() + ". Play with it as you like!</div>");
+				}
 			}
 		});
 
 	}).fail(function(xhr, err) {
 		console.log(xhr, err);
 	});
+
+	$(".dialog .baseUrl").text("http://cantrip.kriekapps.com/" + getMyId() + "/");
 
 
 	$(".dialog .close, .cover").click(function() {
@@ -60,7 +68,7 @@ $(document).ready(function() {
 		$.ajax({
 			method: $(".dialog button.active").data("method"),
 			dataType: "JSON",
-			url: $(".dialog .url").val(),
+			url: "http://cantrip.kriekapps.com/" + getMyId() + "/" + $(".dialog .url").val(),
 			data: $(".dialog .data").val(),
 			contentType: "application/json"
 		}).done(function(response) {
@@ -113,7 +121,7 @@ function parseCURL(text) {
 }
 
 function displayDialog(data) {
-	$(".dialog .url").val(data.url);
+	$(".dialog .url").val(data.url.replace("http://cantrip.kriekapps.com/" + getMyId() + "/", ""));
 	$(".dialog .data").val(data.data);
 	$(".dialog .methodButtons button").removeClass("active");
 	$(".dialog .methodButtons button[data-method=" + data.method + "]").addClass("active");

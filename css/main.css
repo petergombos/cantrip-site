@@ -226,9 +226,8 @@ footer img{
     font-size: 12px;
 }
 
-.dialog input, .dialog textarea {
+.dialog input, .dialog textarea, .dialog .baseUrl {
     height: 50px;
-    margin-bottom: 40px;
     box-sizing: border-box;
     display: block;
     border: none;
@@ -237,6 +236,30 @@ footer img{
     width: 100%;
     color: black;
     background: white;
+    line-height: 16px;
+}
+
+
+.dialog td:last-child {
+    width: 100%;
+}
+
+.dialog .urlContainer {
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.dialog .urlContainer input {
+    padding-left: 0px;
+    height: 56px;
+
+}
+
+.dialog .baseUrl {
+    width: auto;
+    padding-right: 0px;
+    color: #aaaaaa;
+    height: 56px;
 }
 
 .dialog textarea {
@@ -293,6 +316,10 @@ footer img{
     display: none;
 }
 
+div.footNote {
+    font-size: 14px;
+}
+
 
 @media screen and (max-width: 767px) {
     .dialog {
@@ -303,6 +330,15 @@ footer img{
 
     .form {
         padding: 0 20px;
+    }
+
+    header:before {
+        height: 240px;
+    }
+
+    h1 {
+        font-size: 30px;
+        line-height: 40px;
     }
 }
 
