@@ -42,6 +42,21 @@ $(document).ready(function() {
 	});
 
 	$(".dialog .submit").click(function() {
+		$(".dialog .data").css({
+			"color": "black"
+		});
+		//Check if we're sending valid JSON
+		if ($(".dialog button.active").data("method") !== "GET" && $(".dialog button.active").data("method") !== "DELETE") {
+			try {
+				JSON.parse($(".dialog .data").val());
+			} catch(err) {
+				$(".dialog .data").css({
+					"color": "#c00029"
+				});
+				return;
+			}
+		}
+		$(".dialog .response code").html("").parent().removeClass("prettyprinted");
 		$.ajax({
 			method: $(".dialog button.active").data("method"),
 			dataType: "JSON",
@@ -49,9 +64,11 @@ $(document).ready(function() {
 			data: $(".dialog .data").val(),
 			contentType: "application/json"
 		}).done(function(response) {
-			$(".dialog .response").text(JSON.stringify(response, null, "\t"));
+			$(".dialog .response code").html(JSON.stringify(response, null, "\t"));
+			prettyPrint();
 		}).fail(function(response) {
-			$(".dialog .response").text(JSON.stringify(JSON.parse(response.responseText), null, "\t"));
+			$(".dialog .response code").html(JSON.stringify(JSON.parse(response.responseText), null, "\t"));
+			prettyPrint();
 		});
 	});
 
@@ -76,7 +93,7 @@ function getMyId(){
 function parseCURL(text) {
 	var data = {
 		method: "GET",
-		url: "http://cantrip.kriekapps.com/avm81dfs9k9" + getMyId(),
+		url: "http://cantrip.kriekapps.com/" + getMyId(),
 		data: ""
 	}
 	var fragments = text.split("\\\n");
@@ -100,7 +117,7 @@ function displayDialog(data) {
 	$(".dialog .data").val(data.data);
 	$(".dialog .methodButtons button").removeClass("active");
 	$(".dialog .methodButtons button[data-method=" + data.method + "]").addClass("active");
-	$(".dialog .response").text("");
+	$(".dialog .response code").html("");
 	$(".dialog, .cover").show();
 	$(".dialog").css({
 		top: window.scrollY + 100

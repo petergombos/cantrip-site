@@ -35,21 +35,23 @@
         <div class="cover"></div>
         <div class='dialog'>
             <header>Playground<span class='close'>&times;</span></header>
-            <p>URL</p>
-            <input type="text" class='url'>
-            <p>Method</p>
-            <div class="methodButtons">
-                <button data-method="GET">GET</button>
-                <button data-method="POST">POST</button>
-                <button data-method="PUT">PUT</button>
-                <button data-method="PATCH">PATCH</button>
-                <button data-method="DELETE">DELETE</button>
+            <div class="form">
+                <p>URL</p>
+                <input type="text" class='url'>
+                <p>Method</p>
+                <div class="methodButtons">
+                    <button data-method="GET">GET</button>
+                    <button data-method="POST">POST</button>
+                    <button data-method="PUT">PUT</button>
+                    <button data-method="PATCH">PATCH</button>
+                    <button data-method="DELETE">DELETE</button>
+                </div>
+                <p>Body <span>(Must be valid JSON)</span></p>
+                <textarea class='data'></textarea>
+                <button class="submit">Submit</button>
+                <p>Response</p>
+                <pre class='prettyprint response'><code class='js'></code></pre>
             </div>
-            <p>Body</p>
-            <textarea class='data'></textarea>
-            <button class="submit">Submit</button>
-            <p>Response</p>
-            <div class='response'></div>
         </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
