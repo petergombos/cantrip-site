@@ -264,6 +264,7 @@ footer img{
 
 .dialog textarea {
     min-height: 120px;
+    margin-bottom: 40px;
 }
 
 .dialog .response {
