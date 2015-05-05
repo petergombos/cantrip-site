@@ -336,7 +336,7 @@ div.footNote {
         height: 240px;
     }
 
-    h1 {
+    .main h1 {
         font-size: 30px;
         line-height: 40px;
     }
