@@ -17,8 +17,10 @@ $(document).ready(function() {
 
 		// set correct license url
 		$('a[href="LICENSE"]').attr("href","https://raw.githubusercontent.com/kriekapps/cantrip/master/LICENSE").attr("target","_blank");
+		$('a[href="https://kriek.co.uk/cantrip"]').remove();
 
 		var firstCurl = true;
+
 
 		//Add try buttons
 		$(".prettyprint").each(function(index) {
