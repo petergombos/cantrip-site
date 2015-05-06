@@ -2,13 +2,13 @@ $(document).ready(function() {
 	var converter = new Showdown.converter();
 	$.ajax({
 		method: "GET",
-		dataType: "JSON",
-		url: "https://api.github.com/repos/kriekapps/cantrip/contents/README.md"
+		url: "https://kriek.co.uk/cantrip/README.md"
 	}).done(function(response) {
 		
 		// Render data
 		var id = getMyId();
-		$('.main').append(converter.makeHtml(decodeURIComponent(escape(atob(response.content.replace(/\s/g, '')))).replace(/randomID/g,id)));
+		// $('.main').append(converter.makeHtml(decodeURIComponent(escape(atob(response.content.replace(/\s/g, ''))))));
+		$('.main').append(converter.makeHtml(response.replace(/randomID/g,id)));
 		
 		// Formatting
 		$('pre').addClass('prettyprint');
@@ -130,6 +130,6 @@ function displayDialog(data) {
 	$(".dialog .response code").html("");
 	$(".dialog, .cover").show();
 	$(".dialog").css({
-		top: window.scrollY + 100
+		top: (window.scrollY || window.pageYOffset) + 100
 	});
 }
