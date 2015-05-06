@@ -8,7 +8,7 @@ $(document).ready(function() {
 		
 		// Render data
 		var id = getMyId();
-		$('.main').append(converter.makeHtml(window.atob(response.content).replace(/randomID/g,id)));
+		$('.main').append(converter.makeHtml(decodeURIComponent(escape(atob(response.content.replace(/\s/g, '')))).replace(/randomID/g,id)));
 		
 		// Formatting
 		$('pre').addClass('prettyprint');
